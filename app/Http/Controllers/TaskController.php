@@ -47,7 +47,7 @@ class TaskController extends Controller
         return response()->json($task, Response::HTTP_OK);
     }
 
-    public function update_task(Request $request, Task $task)
+    public function update(Request $request, Task $task)
     {
         try {
                 $request->validate([
@@ -70,7 +70,7 @@ class TaskController extends Controller
 
     }
 
-    public function complete_task(Task $task)
+    public function complete(Task $task)
     {
         $task = $this->taskService->completeTask($task);
         return response()->json([
