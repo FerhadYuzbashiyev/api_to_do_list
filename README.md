@@ -1,74 +1,53 @@
-📝 Laravel To-Do List
+<p align="center">
+  <a href="#" target="_blank">
+    <img src="https://laravel.com/img/logomark.min.svg" width="120" alt="Laravel Logo">
+  </a>
+</p>
 
-A simple To-Do List web application built with Laravel.
-It allows users to create, manage, and track their daily tasks in an easy and organized way.
+<h1 align="center">Laravel To-Do List</h1>
 
-🚀 Features
+<p align="center">
+  Simple task management web application built with Laravel.
+</p>
 
-Add new tasks
+<p align="center">
+  <img src="https://img.shields.io/badge/Laravel-Framework-red" alt="Laravel">
+  <img src="https://img.shields.io/badge/PHP-8.x-blue" alt="PHP">
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
+</p>
 
-Edit existing tasks
+---
 
-Mark tasks as completed
+## 📌 About The Project
 
-Delete tasks
+This project is a simple **To-Do List web application** built using the Laravel framework.  
+It helps users organize daily tasks, track progress, and manage productivity in a clean interface.
 
-Simple and clean UI
+---
 
-🛠️ Tech Stack
+## ✨ Features
 
-Laravel (PHP Framework)
+- Create new tasks  
+- Edit existing tasks  
+- Mark tasks as completed  
+- Delete tasks  
+- Responsive and minimal UI  
 
-Blade Templates
+---
 
-MySQL / SQLite (configurable)
+## 🛠️ Tech Stack
 
-Bootstrap or basic CSS (optional)
+- **Laravel (PHP Framework)**
+- Blade templating engine
+- MySQL / SQLite database
+- Bootstrap or basic CSS
 
-⚙️ Installation
+---
 
-Clone the repository:
+## ⚙️ Installation
 
+### 1. Clone repository
+
+```bash
 git clone https://github.com/yourusername/laravel-todo.git
 cd laravel-todo
-
-Install dependencies:
-
-composer install
-
-Copy environment file:
-
-cp .env.example .env
-
-Generate app key:
-
-php artisan key:generate
-
-Configure your database in .env.
-
-Run migrations:
-
-php artisan migrate
-
-Start the development server:
-
-php artisan serve
-
-Then open:
-
-http://127.0.0.1:8000
-📌 Usage
-
-Create tasks from the main page
-
-Update or delete tasks anytime
-
-Track completion status easily
-
-🤝 Contributing
-
-Contributions are welcome! Feel free to fork this project and submit a pull request.
-
-📄 License
-
-This project is open-source and available under the MIT License.
