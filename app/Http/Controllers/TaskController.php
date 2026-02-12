@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\DTO\CreateTaskData;
 use App\DTO\UpdateTaskData;
+use App\Http\Requests\Task\CreateTaskRequest;
+use App\Http\Requests\Task\UpdateTaskRequest;
 use App\Models\Task;
 use App\Service\TaskService;
 use Illuminate\Http\Request;
@@ -17,23 +19,13 @@ class TaskController extends Controller
 
     public function index()
     {
-        return response()->json(Task::all(), Response::HTTP_OK);
+        return response()->json([
+            'data' => Task::all()], Response::HTTP_OK);
     }
 
-    public function store(Request $request)
+    public function store(CreateTaskRequest $request)
     {
-        try {
-                $request->validate([
-                    'title' => 'required|string|max:255',
-                    'description' => 'required|string'
-                ]);
-            } catch (\Illuminate\Validation\ValidationException $e) {
-                return response()->json([
-                    'message' => 'Validation failed',
-                    'errors' => $e->errors(),
-                ], Response::HTTP_UNPROCESSABLE_ENTITY);
-            }
-        $dto = CreateTaskData::fromRequest($request);
+        $dto = CreateTaskData::fromArray($request);
         $task = $this->taskService->createTask($dto);
         
         return response()->json([
@@ -47,20 +39,9 @@ class TaskController extends Controller
         return response()->json($task, Response::HTTP_OK);
     }
 
-    public function update(Request $request, Task $task)
+    public function update(UpdateTaskRequest $request, Task $task)
     {
-        try {
-                $request->validate([
-                    'title' => 'sometimes|string|max:255',
-                    'description' => 'sometimes|string'
-                ]);
-            } catch (\Illuminate\Validation\ValidationException $e) {
-                return response()->json([
-                    'message' => 'Validation failed',
-                    'errors' => $e->errors(),
-                ], Response::HTTP_UNPROCESSABLE_ENTITY);
-            }
-        $dto = UpdateTaskData::fromRequest($request);
+        $dto = UpdateTaskData::fromArray($request);
         $updatedTask = $this->taskService->updateTask($task, $dto);
 
         return response()->json([

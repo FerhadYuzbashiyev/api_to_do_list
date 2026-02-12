@@ -2,6 +2,8 @@
 
 namespace App\DTO;
 
+use App\Http\Requests\Task\UpdateTaskRequest;
+
 class UpdateTaskData
 {
     public function __construct(
@@ -10,11 +12,11 @@ class UpdateTaskData
     ) 
     {}
 
-    public static function fromRequest($request): self
+    public static function fromArray(UpdateTaskRequest $data): self
     {
         return new self(
-            title: $request->string('title'),
-            description: $request->string('description'),
+            title: $data['title'],
+            description: $data['description'],
         );
     }
     
